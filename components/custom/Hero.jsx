@@ -28,6 +28,11 @@ const Hero = () => {
         setOpenDialog(true);
         return;
     }
+    if (!userDetail?._id) {
+  toast('Account still loading—please try again in a moment.');
+  return;
+}
+
     if(userDetail?.token>10)
       {
         toast('You dont have enough token!');
