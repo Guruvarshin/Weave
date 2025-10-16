@@ -45,13 +45,13 @@ export const GetUser= query({
 export const UpdateToken=mutation({
     args:{
         token: v.number(),
-        current_plan: v.string(),
+        current_plan: v.optional(v.string()),
         userId: v.id('users')
     },
     handler:async(ctx,args)=>{
         const result=await ctx.db.patch(args.userId,{
             token:args.token,
-            current_plan:args.current_plan
+            current_plan:args?.current_plan
         });
         return result;
     }
