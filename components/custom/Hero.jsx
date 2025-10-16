@@ -33,7 +33,7 @@ const Hero = () => {
   return;
 }
 
-    if(userDetail?.token>10)
+    if(userDetail?.token<10)
       {
         toast('You dont have enough token!');
         return ;
