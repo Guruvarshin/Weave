@@ -89,7 +89,7 @@ const ChatView = () => {
   }
 
   const onGenerate=(input)=>{
-    if(userDetail?.token>10)
+    if(userDetail?.token<10)
       {
         toast('You dont have enough token');
         return ;

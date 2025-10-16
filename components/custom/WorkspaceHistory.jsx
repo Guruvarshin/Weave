@@ -37,7 +37,7 @@ const WorkspaceHistory = () => {
               onClick={toggleSidebar}
               className="
                 cursor-pointer truncate rounded-xl border border-white/10
-                bg-white/5 px-3 py-2 text-sm text-slate-200 shadow-sm
+                bg-black/5 px-3 py-2 text-sm text-slate-200 shadow-sm
                 transition hover:-translate-y-0.5 hover:bg-white/10 hover:text-white
                 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40 mb-2
               "
