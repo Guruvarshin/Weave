@@ -16,7 +16,7 @@ export const CreateUser=mutation({
         console.log(user);
         //if not create new user
         if(user?.length==0){
-            const result=await ctx.db.insert('users',{
+            const insertedId=await ctx.db.insert('users',{
                 name:args.name,
                 picture:args.picture,
                 email:args.email,
@@ -24,8 +24,10 @@ export const CreateUser=mutation({
                 token:10000,
                 current_plan:'Free'
             });
-            console.log(result);
+            const created = await ctx.db.get(insertedId);
+            return created;
         }
+        return user[0];
     }
 })
 

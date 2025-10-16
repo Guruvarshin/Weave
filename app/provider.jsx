@@ -38,8 +38,8 @@ const Provider = ({ children }) => {
         if (!raw) {
           router.push('/');
         }
-        const user = JSON.parse(raw)
-        if (!user?.email) return
+        const user = JSON.parse(raw);
+        if (!user?.email) return;
 
         const result = await convex.query(api.users.GetUser, {
           email: user.email,

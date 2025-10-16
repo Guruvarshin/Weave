@@ -28,11 +28,19 @@ const SignInDialog = ({ openDialog, closeDialog }) => {
       console.log(userInfo);
       //Save it it database
       const user=userInfo?.data;
-      await CreateUser({name:user?.name, email:user?.email, picture: user?.picture, uid: uuid4()});
-      if(typeof window!==undefined){
-        localStorage.setItem('user',JSON.stringify(user));
+      const dbUser = await CreateUser({name:user?.name, email:user?.email, picture: user?.picture, uid: uuid4()});
+      const storedUser = dbUser ?? userInfo?.data;
+      if(typeof window!==undefined && storedUser){
+        localStorage.setItem('user',JSON.stringify(storedUser));
       }
-      setUserDetail(userInfo?.data);
+      if (dbUser) {
+        setUserDetail(dbUser);
+      } else {
+        setUserDetail(prev => ({
+          ...prev,
+          ...userInfo?.data,
+        }));
+      }
       closeDialog(false);
     },
     onError: errorResponse => console.log(errorResponse),
