@@ -2,7 +2,7 @@
 
 import PricingModel from '@/components/custom/PricingModel';
 import { UserDetailContext } from '@/context/UserDetailContext'
-import React, { useContext } from 'react'
+import React, { Suspense, useContext } from 'react'
 
 const Pricing = ({searchParams}) => {
   const { userDetail } = useContext(UserDetailContext);
@@ -37,7 +37,9 @@ const Pricing = ({searchParams}) => {
       </section>
 
       {/* Pricing cards */}
-      <PricingModel />
+      <Suspense fallback={null}>
+        <PricingModel />
+      </Suspense>
     </div>
   )
 }
