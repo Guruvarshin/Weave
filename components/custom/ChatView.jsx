@@ -12,6 +12,7 @@ import axios from 'axios';
 import Prompt from '@/data/Prompt';
 import Markdown from 'react-markdown';
 import { useSidebar } from '../ui/sidebar';
+import { toast } from 'sonner';
 
 export const countToken=(inputText)=>{
   return inputText.trim().split(/\s+/).filter(word=>word).length;

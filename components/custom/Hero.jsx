@@ -29,8 +29,7 @@ const Hero = () => {
         return;
     }
     if (!userDetail?._id) {
-  toast('Account still loading—please try again in a moment.');
-  return;
+  router.refresh();
 }
 
     if(userDetail?.token<10)
@@ -50,6 +49,7 @@ const Hero = () => {
     });
     console.log(workspaceId);
     router.push('/workspace/'+workspaceId);
+    router.refresh();
 
   }
 
