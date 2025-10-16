@@ -34,7 +34,7 @@ const Hero = () => {
 
     if(userDetail?.token<10)
       {
-        toast('You dont have enough token!');
+        toast('You only have'+userDetail?.token+'tokens');
         return ;
     }
     const msg={
@@ -49,7 +49,6 @@ const Hero = () => {
     });
     console.log(workspaceId);
     router.push('/workspace/'+workspaceId);
-    router.refresh();
 
   }
 
