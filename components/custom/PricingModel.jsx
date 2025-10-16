@@ -66,7 +66,7 @@ const PricingModel = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          plan: pricing.name,
+          plan: pricing?.name,
           email: userDetail.email
         })
       });
